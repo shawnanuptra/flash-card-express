@@ -1,4 +1,4 @@
-import express, { json } from 'express';
+import express from 'express';
 import cors from 'cors'
 
 const PORT = 3000;
@@ -7,8 +7,11 @@ const app = express();
 // enable cors throughout the app
 app.use(cors({
     origin: '*',
-    methods: ['GET', 'POST']
+    methods: ['GET', 'POST'],
 }))
+
+app.use(express.json())
+app.use(express.urlencoded())
 
 // all the flashcards
 const flashcards = [{
@@ -30,19 +33,22 @@ app.get('/', (req, res) => {
 })
 
 app.post('/add-new', (req, res) => {
-    // form submission to add new flashcard
+    const name = req.body.name
+    let questions = req.body.questions
+    const answers = req.body.answers
+
+    // make questions into {q: string, a: string}[]
+    questions = questions.map((question, i) => ({ q: question, a: answers[i] }))
+
     const flashcard = {
-        name: '',
-        questions: [
-            {
-                q: '',
-                a: '',
-            },
-            {
-                q: '',
-                a: '',
-            }]
+        name: name,
+        questions: questions
     }
+
+    // add to state
+    flashcards.push(flashcard)
+
+    res.json(JSON.stringify(flashcard))
 })
 
 app.get('/flashcard', (req, res) => {

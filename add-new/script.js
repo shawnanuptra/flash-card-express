@@ -1,1 +1,33 @@
-console.log("hello world from add-new")
+// attach handleSubmit
+const form = document.getElementById("form")
+form.addEventListener("submit", handleSubmit)
+
+async function handleSubmit(e) {
+    e.preventDefault()
+    const formData = new FormData(e.target)
+    const data = new URLSearchParams(formData)
+
+    // fetch to the server
+    const res = await fetch('http://localhost:3000/add-new/', {
+        method: 'POST',
+        body: data
+    })
+
+    let flashCard = JSON.parse(await res.json())
+    alert(flashCard.name + ' is added')
+}
+
+function handleClick() {
+    const formQuestions = document.getElementById("form-questions")
+    const question = document.createElement("label")
+    const answer = document.createElement("label")
+    question.innerHTML = `
+                    Question
+                    <input required type="text" name="questions" />
+    `;
+    answer.innerHTML = `
+                    Answer
+                    <input required type="text" name="answers" />
+    `;
+    formQuestions.append(question, answer)
+}
