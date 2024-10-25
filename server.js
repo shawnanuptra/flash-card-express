@@ -10,8 +10,35 @@ app.use(cors({
     methods: ['GET', 'POST']
 }))
 
+// all the flashcards
+const flashcards = [];
+
 app.get('/', (req, res) => {
-    res.send(JSON.stringify('hello from express'));
+    // homepage. show all flash cards
+})
+
+app.post('/add-new', (req, res) => {
+    // form submission to add new flashcard
+    const flashcard = {
+        name: '',
+        questions: [
+            {
+                q: '',
+                a: '',
+            },
+            {
+                q: '',
+                a: '',
+            }]
+    }
+})
+
+app.get('/flashcard/:name', (req, res) => {
+    // to get information for the flashcard page
+})
+
+app.get('/flashcard/:name/start', (req, res) => {
+    // start game
 })
 
 app.listen(PORT, () => {
