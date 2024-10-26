@@ -14,7 +14,10 @@ async function handleSubmit(e) {
     })
 
     let flashCard = JSON.parse(await res.json())
-    alert(flashCard.name + ' is added')
+    alert(flashCard.name + ' is added');
+
+    // redirect to homeapge
+    location.pathname = '/'
 }
 
 function handleClick() {
