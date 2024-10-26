@@ -1,8 +1,15 @@
 (async () => {
     const search = location.search
-    const res = await fetch(`http://localhost:3000/flashcard/${search}`)
-    let flashcard = await res.json()
 
+    const res = await fetch(`http://localhost:3000/flashcard/${search}`)
+
+    // show error msg and redirect if 404
+    if (res.status === 404) {
+        alert('flashcard not found')
+        location.href = location.origin
+    }
+
+    let flashcard = await res.json()
     flashcard = JSON.parse(flashcard)
 
     // set title

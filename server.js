@@ -58,6 +58,11 @@ app.get('/flashcard', (req, res) => {
     // find the corresponding item
     const flashcard = flashcards.find(flashcard => flashcard.name === name)
 
+    // if flashcard is empty
+    if (!flashcard) {
+        res.send(404);
+    }
+
     res.json(JSON.stringify(flashcard))
 })
 
