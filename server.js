@@ -52,10 +52,13 @@ app.post('/add-new', (req, res) => {
 })
 
 app.get('/flashcard', (req, res) => {
-    // query name 
-    // if req.query === empty, redirect to home
-    // to get information for the flashcard page
-    res.json(JSON.stringify(req.query))
+    // get name
+    const name = req.query.name
+
+    // find the corresponding item
+    const flashcard = flashcards.find(flashcard => flashcard.name === name)
+
+    res.json(JSON.stringify(flashcard))
 })
 
 // todo: change this to /flashcard/start/?name=
