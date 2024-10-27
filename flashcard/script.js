@@ -18,11 +18,11 @@
     // get
     const questions = flashcard.questions
     const questionsElArr = questions.map(question => `
-        <div class="flashcard">
-            <p>${question.q}</p>
-            <p>${question.a}</p>
-        </div>
-        `)
+		<div class="flashcard">
+			<p>${question.q}</p>
+			<p>${question.a}</p>
+		</div>
+		`)
     console.log(questionsElArr)
     document.getElementById("questions").innerHTML = questionsElArr.join('');
 

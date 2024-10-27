@@ -25,12 +25,12 @@ function handleClick() {
     const question = document.createElement("label")
     const answer = document.createElement("label")
     question.innerHTML = `
-                    Question
-                    <input required type="text" name="questions" />
-    `;
+					Question
+					<input required type="text" name="questions" />
+	`;
     answer.innerHTML = `
-                    Answer
-                    <input required type="text" name="answers" />
-    `;
+					Answer
+					<input required type="text" name="answers" />
+	`;
     formQuestions.append(question, answer)
 }
