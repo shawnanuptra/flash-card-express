@@ -2,9 +2,21 @@
 const form = document.getElementById("form")
 form.addEventListener("submit", handleSubmit)
 
+function slugify(str) {
+    // todo: does this work with all names? hint: what about non-alphanumerics? or symbols?
+    return str.trim().toLowerCase().replaceAll(' ', '-')
+}
+
 async function handleSubmit(e) {
     e.preventDefault()
     const formData = new FormData(e.target)
+
+    // append slug
+    const flashcardName = formData.get('name')
+    const slug = slugify(flashcardName)
+    formData.set('slug', slug)
+
+    // convert data
     const data = new URLSearchParams(formData)
 
     // fetch to the server

@@ -15,7 +15,8 @@ app.use(express.urlencoded())
 
 // all the flashcards
 const flashcards = [{
-	name: 'first-one',
+	name: 'First One',
+	slug: 'first-one',
 	questions: [
 		{
 			q: 'q1',
@@ -34,6 +35,7 @@ app.get('/', (req, res) => {
 
 app.post('/add-new', (req, res) => {
 	const name = req.body.name
+	const slug = req.body.slug
 	let questions = req.body.questions
 	const answers = req.body.answers
 
@@ -42,6 +44,7 @@ app.post('/add-new', (req, res) => {
 
 	const flashcard = {
 		name: name,
+		slug: slug,
 		questions: questions
 	}
 
@@ -53,10 +56,10 @@ app.post('/add-new', (req, res) => {
 
 app.get('/flashcard', (req, res) => {
 	// get name
-	const name = req.query.name
+	const slug = req.query.slug
 
 	// find the corresponding item
-	const flashcard = flashcards.find(flashcard => flashcard.name === name)
+	const flashcard = flashcards.find(flashcard => flashcard.slug === slug)
 
 	// if flashcard is empty
 	if (!flashcard) {
@@ -66,7 +69,6 @@ app.get('/flashcard', (req, res) => {
 	res.json(JSON.stringify(flashcard))
 })
 
-// todo: change this to /flashcard/start/?name=
 app.get('/flashcard/start', (req, res) => {
 	// start game
 	const name = req.query.name
