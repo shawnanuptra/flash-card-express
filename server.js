@@ -55,10 +55,10 @@ app.post('/add-new', (req, res) => {
 })
 
 app.get('/flashcard', (req, res) => {
-	// get name
+	// get slug
 	const slug = req.query.slug
 
-	// find the corresponding item
+	// find the corresponding flashcard
 	const flashcard = flashcards.find(flashcard => flashcard.slug === slug)
 
 	// if flashcard is empty
@@ -67,12 +67,6 @@ app.get('/flashcard', (req, res) => {
 	}
 
 	res.json(JSON.stringify(flashcard))
-})
-
-app.get('/flashcard/start', (req, res) => {
-	// start game
-	const name = req.query.name
-	res.json(JSON.stringify(name))
 })
 
 app.listen(PORT, () => {
