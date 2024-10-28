@@ -6,5 +6,5 @@
 
 	const flashcardLinks = flashcards.map(card => `<a href='/flashcard/?slug=` + card.slug + `' class='flashcard'>` + card.name + `</a>`)
 
-	document.getElementById("flashcards").innerHTML = flashcardLinks;
+	document.getElementById("flashcards").innerHTML = flashcardLinks.join('');
 })()
