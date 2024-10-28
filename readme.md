@@ -18,6 +18,7 @@ After these features are completed, feel free to extend the app! Here are some i
 5. Does your app have FOUC (Flash of Unstyled Content)? Research what it is and how to eliminate it.
 6. Validate user input. What if the answer contains whitespace in the beginning or end?
 7. Replace alerts with a custom modal for a more engaging and immersive user experience.
+8. Add user authentication functionality.
 
 ## Prerequisites
 
