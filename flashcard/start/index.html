@@ -5,8 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Game</title>
 		<link rel="stylesheet" href="../../globals.css" />
-		<link rel="stylesheet" href="style.css" />
-
+		<!--  damn another styling wackiness huh.. I wonder why.. -->
 		<script src="script.js" defer></script>
 	</head>
 	<body>
@@ -17,7 +16,8 @@
 				<p id="question"></p>
 
 				<h2>Answer</h2>
-				<input required type="text" name="answer" id="answer" />
+				<!-- TODO: what if user press enter without typing anything? -->
+				<input type="text" name="answer" id="answer" />
 				<button type="submit">Submit Answer</button>
 			</form>
 		</div>

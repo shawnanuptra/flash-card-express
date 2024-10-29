@@ -12,8 +12,7 @@
 	let flashcard = await res.json()
 	flashcard = JSON.parse(flashcard)
 
-	// set title
-	document.getElementById("title").innerHTML = flashcard.name
+	// TODO: set #title value to the name of flashcard
 
 	// get
 	const questions = flashcard.questions
@@ -23,9 +22,8 @@
 			<p>${question.a}</p>
 		</div>
 		`)
-	console.log(questionsElArr)
 	document.getElementById("questions").innerHTML = questionsElArr.join('');
 
-	document.getElementById("start-game").setAttribute('href', 'start/' + search)
+	// TODO: set #start-game href to be 'start/{search}'
 
 })()

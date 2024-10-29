@@ -3,8 +3,8 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Add new</title>
-		<script src="script.js" defer></script>
+		<title>Add New Flashcard</title>
+		<!--  not behaving as expected? weird.. where do you put the JS code again? -->
 		<link rel="stylesheet" href="../globals.css" />
 		<link rel="stylesheet" href="style.css" />
 	</head>
@@ -18,25 +18,23 @@
 			<div class="form-questions" id="form-questions">
 				<label>
 					Question
-					<input required type="text" name="questions" />
+					<input type="text" name="questions" />
 				</label>
 				<label>
 					Answer
-					<input required type="text" name="answers" />
+					<input type="text" name="answers" />
 				</label>
 				<label>
 					Question
-					<input required type="text" name="questions" />
+					<input type="text" name="questions" />
 				</label>
 				<label>
 					Answer
-					<input required type="text" name="answers" />
+					<input type="text" name="answers" />
 				</label>
 			</div>
 
-			<button type="button" onclick="handleClick()">
-				Add another question/answer
-			</button>
+			<!-- TODO: add a button that triggers `handleClick()` to add another question/answer inputs -->
 
 			<button type="submit">Create Flash Card</button>
 		</form>

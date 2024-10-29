@@ -33,4 +33,9 @@ After these features are completed, feel free to extend the app! Here are some i
 4. Run `npm run start`. This will run `nodemon server.js` in the terminal to start up the Express server (look at the "scripts" in `package.json`). `nodemon` restarts the server on every change in the directory (file save). This will eliminate the need to restart the Express server after every change.
 5. Run the root `index.html` with Live Server by right-clicking the file, and selecting `Open with Live Server`. Similar to `nodemon`, Live Server just helps in development for enabling the _hot reload_ feature.
 
-And you're all setup! The files are filled with comments such as `TODO:` as hints. These serve as guides to aid in your development. Have fun!
+And you're all setup! The files are filled with comments such as `TODO:` as hints. These serve as guides to aid in your development.
+
+## Notes
+
+1. Aim to tackle the baseline functionalities before the optionals.
+2. Remember to test your app! Make sure all inputs are validated - users tend to be unexpectable.

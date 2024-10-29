@@ -14,17 +14,18 @@ app.use(express.json())
 app.use(express.urlencoded())
 
 // all the flashcards
+// TODO: change/remove this default flashcard 
 const flashcards = [{
-	name: 'First One',
-	slug: 'first-one',
+	name: 'Default',
+	slug: 'default',
 	questions: [
 		{
-			q: 'q1',
-			a: 'a1',
+			q: 'This is an example of question 1. Say yes.',
+			a: 'yes',
 		},
 		{
-			q: 'q2',
-			a: 'a2',
+			q: 'Uh oh, the answer is I don\'t know!',
+			a: 'I don\'t know',
 		}]
 }];
 
@@ -35,17 +36,13 @@ app.get('/', (req, res) => {
 
 app.post('/add-new', (req, res) => {
 	const name = req.body.name
-	const slug = req.body.slug
-	let questions = req.body.questions
-	const answers = req.body.answers
+	// TODO: get all other form fields
 
-	// make questions into {q: string, a: string}[]
-	questions = questions.map((question, i) => ({ q: question, a: answers[i] }))
+	// TODO: change questions into an array of {q: string, a: string}
 
 	const flashcard = {
 		name: name,
-		slug: slug,
-		questions: questions
+		// TODO: add slug and questions into the flashcard object
 	}
 
 	// add to state
@@ -58,8 +55,7 @@ app.get('/flashcard', (req, res) => {
 	// get slug
 	const slug = req.query.slug
 
-	// find the corresponding flashcard
-	const flashcard = flashcards.find(flashcard => flashcard.slug === slug)
+	// TODO: find the corresponding flashcard, and assign it to 'const flashcard =' 
 
 	// if flashcard is empty
 	if (!flashcard) {

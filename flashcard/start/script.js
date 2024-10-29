@@ -4,46 +4,33 @@
 
 	const search = location.search
 
-	// get the flashcard information
-	const res = await fetch(`http://localhost:3000/flashcard/${search}`)
-
-	// show error msg and redirect if 404
-	if (res.status === 404) {
-		alert('flashcard not found')
-		location.href = location.origin
-	}
-
-	// make json into js object with JSON.parse
-	let flashcard = JSON.parse(await res.json())
+	// TODO: fetch the correct information as needed, and redirect if fetch is null 
+	// hint: check other script.js files
 
 	const questionsList = flashcard.questions
 	const question = document.getElementById("question")
-	question.innerHTML = questionsList[0].q
+	// TODO: set question.innerHTML to the "q" property of the first element in questionsList
 
 	// attach event listener
 	document.getElementById("question-form").addEventListener('submit', handleSubmit)
 
 	function handleSubmit(e) {
-		e.preventDefault();
+		// TODO: how do I stop the form submission from triggering a full page reload?
 		const correctAnswer = questionsList[curIndex].a
 		const userAnswer = new FormData(e.target).get('answer')
 
 		// user feedback
-		if (correctAnswer === userAnswer) {
-			correctAnswers++;
-			alert('Correct!')
-		} else {
-			alert('Wrong! The correct answer is ' + correctAnswer)
-		}
+		// TODO: check if correctAnswer is the same as userAnswer. Tell the user if they are correct, 
+		// and tell the user the correct answer if they're wrong
+		// hint: use alert() for user feedback 
 
 		// increment index, reset form and new question 
 		curIndex++
 		if (curIndex !== questionsList.length) {
-			question.innerHTML = questionsList[curIndex].q
+			// TODO: set the #question to show the current question from questionsList
 			document.getElementById('question-form').reset()
 		} else {
-			// show final result and redirect to home
-			alert(`Finished playing!\nYour score: ${correctAnswers}/${questionsList.length}`)
+			// TODO: show final result and redirect to home
 			location.href = location.origin
 		}
 	}
