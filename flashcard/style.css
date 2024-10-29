@@ -31,7 +31,9 @@
 	font-size: 1.5rem;
 
 	/* animation */
-	transition: box-shadow ease-in 100ms, transform ease-in 100ms;
+	transition:
+		box-shadow ease-in 100ms,
+		transform ease-in 100ms;
 }
 
 .start-game-button:hover {

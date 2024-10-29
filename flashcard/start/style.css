@@ -41,7 +41,9 @@ button {
 	font-size: 1.25rem;
 
 	/* animation */
-	transition: box-shadow ease-in 100ms, transform ease-in 100ms;
+	transition:
+		box-shadow ease-in 100ms,
+		transform ease-in 100ms;
 }
 
 button:hover {
